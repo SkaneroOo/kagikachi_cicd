@@ -54,7 +54,7 @@ pipeline {
                     sh "docker network create ${networkName}"
                     
                     try {
-                        sh "docker run --name ${APP_NAME}-${env.BUILD_NUMBER} --network ${networkName} -p ${PORT}:${PORT} -d ${imageName}"
+                        sh "docker run --name ${APP_NAME}-${env.BUILD_NUMBER} --network ${networkName} -d ${imageName}"
                         
                         sleep(time: 5, unit: "SECONDS")
                         
